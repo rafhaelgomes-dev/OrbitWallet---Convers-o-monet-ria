@@ -17,10 +17,12 @@ class Login extends React.Component {
   }
 
   handleRedirect = () => {
-    const { dispatch, history } = this.props;
+    const { dispatch } = this.props;
     const { email } = this.state;
     dispatch(loginUserAction(email));
-    history.push('/carteira');
+    this.setState({
+      redirect: true,
+    });
   };
 
   handlePasswordaEmailValidation = (event) => {
@@ -90,7 +92,6 @@ class Login extends React.Component {
 }
 
 Login.propTypes = {
-  history: PropTypes.objectOf.isRequired,
   dispatch: PropTypes.func.isRequired,
 };
 
