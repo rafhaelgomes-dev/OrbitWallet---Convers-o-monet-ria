@@ -17,19 +17,17 @@ class Login extends React.Component {
   }
 
   handleRedirect = () => {
-    const { dispatch } = this.props;
+    const { dispatch, history } = this.props;
     const { email } = this.state;
     dispatch(loginUserAction(email));
-    this.setState({
-      redirect: true,
-    });
+    history.push('/carteira');
   };
 
   handlePasswordaEmailValidation = (event) => {
     const { target } = event;
     const { value, name } = target;
     const { validationEmail, validationPassword } = this.state;
-    const number = 6;
+    const number = 4;
     if (name === 'email') {
       const regex = /\S+@\S+\.\S+/;
       this.setState({
@@ -38,7 +36,7 @@ class Login extends React.Component {
       });
     }
     if (name === 'password') {
-      if (value.length >= number) {
+      if (value.length > number) {
         this.setState({ validationPassword: true });
       } else {
         this.setState({ validationPassword: false });
@@ -92,6 +90,7 @@ class Login extends React.Component {
 }
 
 Login.propTypes = {
+  history: PropTypes.objectOf.isRequired,
   dispatch: PropTypes.func.isRequired,
 };
 
