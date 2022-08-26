@@ -82,7 +82,7 @@ class Login extends React.Component {
             onClick={ this.handleRedirect }
           />
         </form>
-        {redirect ? <Redirect to="/wallet" /> : null}
+        {redirect ? <Redirect to="/carteira" /> : null}
       </section>
     );
   }
