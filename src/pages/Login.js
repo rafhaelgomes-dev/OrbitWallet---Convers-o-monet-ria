@@ -12,26 +12,29 @@ class Login extends React.Component {
       validationPassword: false,
       disabled: true,
       redirect: false,
+      email: '',
     };
   }
 
   handleRedirect = () => {
+    const { dispatch } = this.props;
+    const { email } = this.state;
+    dispatch(loginUserAction(email));
     this.setState({
       redirect: true,
     });
   };
 
   handlePasswordaEmailValidation = (event) => {
-    const { dispatch } = this.props;
     const { target } = event;
     const { value, name } = target;
     const { validationEmail, validationPassword } = this.state;
     const number = 6;
     if (name === 'email') {
-      dispatch(loginUserAction(event.target.value));
       const regex = /\S+@\S+\.\S+/;
       this.setState({
         validationEmail: regex.test(event.target.value),
+        email: event.target.value,
       });
     }
     if (name === 'password') {
@@ -54,8 +57,7 @@ class Login extends React.Component {
   };
 
   render() {
-    const { redirect, disabled } = this.state;
-    const { user } = this.props;
+    const { redirect, disabled, email } = this.state;
     return (
       <section>
         <form>
@@ -63,7 +65,7 @@ class Login extends React.Component {
             data-testid="email-input"
             type="email"
             name="email"
-            value={ user.email }
+            value={ email }
             onChange={ (e) => this.handlePasswordaEmailValidation(e) }
             required
           />
@@ -74,13 +76,14 @@ class Login extends React.Component {
             onChange={ (e) => this.handlePasswordaEmailValidation(e) }
             required
           />
-          <input
+          <button
             type="button"
-            name="button"
-            value="Entrar"
             disabled={ disabled }
             onClick={ this.handleRedirect }
-          />
+          >
+            Entrar
+
+          </button>
         </form>
         {redirect ? <Redirect to="/carteira" /> : null}
       </section>
@@ -89,7 +92,6 @@ class Login extends React.Component {
 }
 
 Login.propTypes = {
-  user: PropTypes.objectOf(PropTypes.string).isRequired,
   dispatch: PropTypes.func.isRequired,
 };
 
