@@ -1,5 +1,7 @@
 const LOGIN_USER = 'LOGIN_USER';
 const API_DATA = 'API_DATA';
+const API_CAMBIO = 'API_CAMBIO';
+
 const loginUserAction = (emailUser) => ({
   type: LOGIN_USER,
   emailUser,
@@ -8,6 +10,12 @@ const loginUserAction = (emailUser) => ({
 export const apiData = (data) => ({
   type: API_DATA,
   data,
+});
+
+export const apiInformationAndCambio = (Information, Cambio) => ({
+  type: API_CAMBIO,
+  Information,
+  Cambio,
 });
 
 export const fetchAwesomeApi = () => async (dispatch) => {

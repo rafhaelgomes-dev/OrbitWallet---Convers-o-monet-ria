@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchAwesomeApi } from '../redux/actions';
+import { fetchAwesomeApi, apiInformationAndCambio } from '../redux/actions';
 
 class WalletForm extends Component {
   constructor() {
     super();
     this.state = {
-      Valor: '',
+      Valor: 0,
       Descrição: '',
       Moeda: 'USD',
       Pagamento: 'Dinheiro',
       Categoria: 'Alimentação',
+      information: [],
     };
   }
 
@@ -26,6 +27,33 @@ class WalletForm extends Component {
     this.setState({
       [name]: value,
     });
+  };
+
+  handleSaveInformation = async () => {
+    const { Valor, Descrição, Moeda, Pagamento, Categoria, information } = this.state;
+    await this.setState((state) => (
+      {
+        information: [
+          ...state.information,
+          { id: information.length, Valor, Descrição, Moeda, Pagamento, Categoria }],
+      }
+    ));
+    this.setState({
+      Valor: '',
+      Descrição: '',
+      Moeda: 'USD',
+      Pagamento: 'Dinheiro',
+      Categoria: 'Alimentação',
+    });
+    this.handleDispatch();
+  };
+
+  handleDispatch = async () => {
+    const { information } = this.state;
+    const response = await fetch('https://economia.awesomeapi.com.br/json/all');
+    const data = await response.json();
+    const { dispatch } = this.props;
+    dispatch(apiInformationAndCambio(information[information.length - 1], data));
   };
 
   render() {
@@ -98,6 +126,13 @@ class WalletForm extends Component {
               <option>Saúde</option>
             </select>
           </label>
+          <button
+            type="button"
+            onClick={ this.handleSaveInformation }
+          >
+            Adicionar despesa
+
+          </button>
         </form>
       </div>
     );
