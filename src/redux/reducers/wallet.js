@@ -7,6 +7,13 @@ const ESTADO_INICIAL = {
 
 const wallet = (state = ESTADO_INICIAL, action) => {
   switch (action.type) {
+  case 'API_DATA': {
+    const arrayData = [...Object.keys(action.data)];
+    return {
+      ...state,
+      currencies: arrayData.filter((e) => e !== 'USDT'),
+    };
+  }
   default:
     return state;
   }
