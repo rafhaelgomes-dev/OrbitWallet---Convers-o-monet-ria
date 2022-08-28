@@ -45,7 +45,7 @@ const wallet = (state = ESTADO_INICIAL, action) => {
     return {
       ...state,
       expenses: action.despesasFiltradas,
-      total: Number(numSub <= 0 ? 0 : numSub),
+      total: Number(Number(numSub <= 0 ? 0 : numSub).toFixed(2)),
     };
   }
   default:
