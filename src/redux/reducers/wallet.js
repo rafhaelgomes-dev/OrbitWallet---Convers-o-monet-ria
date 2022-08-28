@@ -40,6 +40,14 @@ const wallet = (state = ESTADO_INICIAL, action) => {
       total: Number(total2),
     };
   }
+  case 'DELETA_DESPESAS': {
+    const numSub = Number(state.total - Number(action.valorDespesaDeletada)).toFixed(2);
+    return {
+      ...state,
+      expenses: action.despesasFiltradas,
+      total: Number(numSub <= 0 ? 0 : numSub),
+    };
+  }
   default:
     return state;
   }

@@ -1,10 +1,17 @@
 const LOGIN_USER = 'LOGIN_USER';
 const API_DATA = 'API_DATA';
 const API_CAMBIO = 'API_CAMBIO';
+const DELETA_DESPESAS = 'DELETA_DESPESAS';
 
 const loginUserAction = (emailUser) => ({
   type: LOGIN_USER,
   emailUser,
+});
+
+export const deletaDespesas = (despesasFiltradas, valorDespesaDeletada) => ({
+  type: DELETA_DESPESAS,
+  despesasFiltradas,
+  valorDespesaDeletada,
 });
 
 export const apiData = (data) => ({
