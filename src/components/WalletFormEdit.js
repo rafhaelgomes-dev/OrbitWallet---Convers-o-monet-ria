@@ -50,12 +50,12 @@ class WalletFormEdit extends Component {
       tag: Categoria,
       exchangeRates: exchangeRatesEdit,
     };
+    const state = Moeda;
     const valorAnterior = (
       Number(expenses[Wallet.IndexDaDespesa[0]].value)
       * Number(Wallet.IndexDaDespesa[1]));
     const newArray = [...expenses];
-    console.log(valorAnterior.toFixed(2));
-    const valorConvertido = Valor * Wallet.IndexDaDespesa[1];
+    const valorConvertido = Valor * Wallet.DespesaParaEditar[0].exchangeRates[state].ask;
     newArray.splice(Wallet.IndexDaDespesa[0], 1, newDespesa);
     dispatch(saveEditDespesas(newArray, valorConvertido, valorAnterior.toFixed(2)));
     this.setState({

@@ -52,7 +52,6 @@ class WalletForm extends Component {
     const { information } = this.state;
     const response = await fetch('https://economia.awesomeapi.com.br/json/all');
     const novoArray = information[information.length - 1];
-    console.log(novoArray);
     const data = await response.json();
     const { dispatch, Wallet } = this.props;
     const array = {
@@ -64,7 +63,6 @@ class WalletForm extends Component {
       tag: novoArray.Categoria,
       exchangeRates: data,
     };
-    console.log(array);
     dispatch(apiInformationAndCambio(array, data));
   };
 
