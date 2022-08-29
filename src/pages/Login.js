@@ -60,6 +60,7 @@ class Login extends React.Component {
     const { redirect, disabled, email } = this.state;
     return (
       <section>
+        <h1>Login</h1>
         <form>
           <input
             data-testid="email-input"

@@ -1,7 +1,7 @@
 const ESTADO_INICIAL = {
   currencies: [],
   expenses: [],
-  total: 0,
+  total: '0.00',
   editor: false,
   idToEdit: 0,
   buttonEdit: false,
@@ -12,10 +12,9 @@ const API_CAMBIO = 'API_CAMBIO';
 const wallet = (state = ESTADO_INICIAL, action) => {
   switch (action.type) {
   case 'API_DATA': {
-    const arrayData = [...Object.keys(action.data)];
     return {
       ...state,
-      currencies: arrayData.filter((e) => e !== 'USDT'),
+      currencies: [...Object.keys(action.data)].filter((e) => e !== 'USDT'),
     };
   }
   case API_CAMBIO: {
@@ -25,7 +24,8 @@ const wallet = (state = ESTADO_INICIAL, action) => {
     ));
     const cotacaoAtualDaMoeda = arrayFilterMoedaCambio[0][1].ask;
     const
-      t = Number(state.total + cotacaoAtualDaMoeda * action.Information.value).toFixed(2);
+      t = Number(Number(state.total)
+      + cotacaoAtualDaMoeda * action.Information.value).toFixed(2);
     return {
       ...state,
       expenses: [...state.expenses, action.Information],
@@ -37,8 +37,8 @@ const wallet = (state = ESTADO_INICIAL, action) => {
     return {
       ...state,
       expenses: action.despesasFiltradas,
-      total: Number(Number(numSub <= 0 ? 0 : numSub).toFixed(2)),
-      buttonEdit: false,
+      total: Number(Number(numSub <= 0 ? 0 : numSub).toFixed(2)) <= 0
+        ? '0.00' : Number(Number(numSub <= 0 ? 0 : numSub).toFixed(2)),
     };
   }
   case 'SAVE_DESPESAS': {
@@ -46,7 +46,7 @@ const wallet = (state = ESTADO_INICIAL, action) => {
     return {
       ...state,
       expenses: action.expenses,
-      total: total.toFixed(2) <= 0 ? 0 : total.toFixed(2),
+      total: total.toFixed(2) <= 0 ? '0.00' : total.toFixed(2),
       buttonEdit: false,
     };
   }

@@ -24,7 +24,7 @@ class Table extends Component {
     const { Wallet } = this.props;
     const { expenses } = Wallet;
     return (
-      <table>
+      <table data-testid="table">
         <thead>
           <tr>
             <th>Descrição</th>

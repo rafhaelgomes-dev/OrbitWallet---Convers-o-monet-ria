@@ -58,6 +58,13 @@ class WalletFormEdit extends Component {
     const valorConvertido = Valor * Wallet.IndexDaDespesa[1];
     newArray.splice(Wallet.IndexDaDespesa[0], 1, newDespesa);
     dispatch(saveEditDespesas(newArray, valorConvertido, valorAnterior.toFixed(2)));
+    this.setState({
+      Valor: 0,
+      Descrição: '',
+      Moeda: 'USD',
+      Pagamento: 'Dinheiro',
+      Categoria: 'Alimentação',
+    });
   };
 
   render() {

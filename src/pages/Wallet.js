@@ -12,6 +12,7 @@ class Wallet extends React.Component {
     const { buttonEdit } = WalletState;
     return (
       <div>
+        <h1>Carteira</h1>
         <Header />
         {buttonEdit === true ? <WalletFormEdit /> : <WalletForm />}
         <Table />
