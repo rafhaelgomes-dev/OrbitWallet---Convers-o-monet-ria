@@ -9,9 +9,9 @@ class Header extends Component {
     const { total } = Wallet;
     return (
       <div className={ styles.containerHeader }>
-        <p data-testid="email-field">{Email}</p>
+        <p data-testid="email-field">{`E-mail: ${Email}`}</p>
         <section className={ styles.containerTotal }>
-          <p data-testid="total-field" className={ styles.pTotal }>{total}</p>
+          <p className={ styles.pTotal }>{`Total: R$${total}`}</p>
           <p data-testid="header-currency-field">BRL</p>
         </section>
       </div>
