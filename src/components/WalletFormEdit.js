@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchAwesomeApi, apiInformationAndCambio } from '../redux/actions';
+import { fetchAwesomeApi, saveEditDespesas } from '../redux/actions';
 
-class WalletForm extends Component {
+class WalletFormEdit extends Component {
   constructor() {
     super();
     this.state = {
@@ -12,13 +12,20 @@ class WalletForm extends Component {
       Moeda: 'USD',
       Pagamento: 'Dinheiro',
       Categoria: 'Alimentação',
-      information: [],
     };
   }
 
   async componentDidMount() {
-    const { dispatch } = this.props;
+    const { dispatch, Wallet } = this.props;
+    const { DespesaParaEditar } = Wallet;
     await dispatch(fetchAwesomeApi());
+    await this.setState({
+      Valor: DespesaParaEditar[0].value,
+      Descrição: DespesaParaEditar[0].description,
+      Moeda: DespesaParaEditar[0].currency,
+      Pagamento: DespesaParaEditar[0].method,
+      Categoria: DespesaParaEditar[0].tag,
+    });
   }
 
   handleSetState = (event) => {
@@ -30,42 +37,27 @@ class WalletForm extends Component {
   };
 
   handleSaveInformation = async () => {
-    const { Valor, Descrição, Moeda, Pagamento, Categoria, information } = this.state;
-    await this.setState((state) => (
-      {
-        information: [
-          ...state.information,
-          { id: information.length, Valor, Descrição, Moeda, Pagamento, Categoria }],
-      }
-    ));
-    this.setState({
-      Valor: '',
-      Descrição: '',
-      Moeda: 'USD',
-      Pagamento: 'Dinheiro',
-      Categoria: 'Alimentação',
-    });
-    this.handleDispatch();
-  };
-
-  handleDispatch = async () => {
-    const { information } = this.state;
-    const response = await fetch('https://economia.awesomeapi.com.br/json/all');
-    const novoArray = information[information.length - 1];
-    console.log(novoArray);
-    const data = await response.json();
-    const { dispatch, Wallet } = this.props;
-    const array = {
-      id: Wallet.expenses.length,
-      value: novoArray.Valor,
-      description: novoArray.Descrição,
-      currency: novoArray.Moeda,
-      method: novoArray.Pagamento,
-      tag: novoArray.Categoria,
-      exchangeRates: data,
+    const { Wallet, dispatch } = this.props;
+    const { expenses } = Wallet;
+    const { Valor, Descrição, Moeda, Pagamento, Categoria } = this.state;
+    const exchangeRatesEdit = expenses[0].exchangeRates;
+    const newDespesa = {
+      id: Wallet.IndexDaDespesa[0],
+      value: Valor,
+      description: Descrição,
+      currency: Moeda,
+      method: Pagamento,
+      tag: Categoria,
+      exchangeRates: exchangeRatesEdit,
     };
-    console.log(array);
-    dispatch(apiInformationAndCambio(array, data));
+    const valorAnterior = (
+      Number(expenses[Wallet.IndexDaDespesa[0]].value)
+      * Number(Wallet.IndexDaDespesa[1]));
+    const newArray = [...expenses];
+    console.log(valorAnterior.toFixed(2));
+    const valorConvertido = Valor * Wallet.IndexDaDespesa[1];
+    newArray.splice(Wallet.IndexDaDespesa[0], 1, newDespesa);
+    dispatch(saveEditDespesas(newArray, valorConvertido, valorAnterior.toFixed(2)));
   };
 
   render() {
@@ -142,7 +134,7 @@ class WalletForm extends Component {
             type="button"
             onClick={ this.handleSaveInformation }
           >
-            Adicionar despesa
+            Editar despesa
 
           </button>
         </form>
@@ -151,13 +143,15 @@ class WalletForm extends Component {
   }
 }
 
-WalletForm.propTypes = {
+WalletFormEdit.propTypes = {
   dispatch: PropTypes.func.isRequired,
   Wallet: PropTypes.objectOf(PropTypes.arrayOf).isRequired,
 
 };
 
 const mapStateToProps = (state) => ({
-  Wallet: state.wallet });
+  Wallet: state.wallet,
+  EditarDespesa: state.editarDespesas,
+});
 
-export default connect(mapStateToProps, null)(WalletForm);
+export default connect(mapStateToProps, null)(WalletFormEdit);

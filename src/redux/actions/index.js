@@ -14,6 +14,20 @@ export const deletaDespesas = (despesasFiltradas, valorDespesaDeletada) => ({
   valorDespesaDeletada,
 });
 
+export const editDespesas = (despesa, index, valorCambio) => ({
+  type: 'EDITAR_DESPESAS',
+  despesa,
+  index,
+  valorCambio,
+});
+
+export const saveEditDespesas = (expenses, valorCam, A) => ({
+  type: 'SAVE_DESPESAS',
+  expenses,
+  valorCam,
+  A,
+});
+
 export const apiData = (data) => ({
   type: API_DATA,
   data,

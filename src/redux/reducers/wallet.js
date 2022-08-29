@@ -4,6 +4,7 @@ const ESTADO_INICIAL = {
   total: 0,
   editor: false,
   idToEdit: 0,
+  buttonEdit: false,
 };
 
 const API_CAMBIO = 'API_CAMBIO';
@@ -20,24 +21,15 @@ const wallet = (state = ESTADO_INICIAL, action) => {
   case API_CAMBIO: {
     const arrayCambio = Object.entries(action.Cambio);
     const arrayFilterMoedaCambio = arrayCambio.filter((e) => (
-      e[0] === action.Information.Moeda
+      e[0] === action.Information.currency
     ));
     const cotacaoAtualDaMoeda = arrayFilterMoedaCambio[0][1].ask;
-    const information = action.Information;
     const
-      total2 = Number(state.total + cotacaoAtualDaMoeda * information.Valor).toFixed(2);
+      t = Number(state.total + cotacaoAtualDaMoeda * action.Information.value).toFixed(2);
     return {
       ...state,
-      expenses: [...state.expenses, {
-        id: information.id,
-        value: information.Valor,
-        description: information.Descrição,
-        currency: information.Moeda,
-        method: information.Pagamento,
-        tag: information.Categoria,
-        exchangeRates: action.Cambio,
-      }],
-      total: Number(total2),
+      expenses: [...state.expenses, action.Information],
+      total: Number(t),
     };
   }
   case 'DELETA_DESPESAS': {
@@ -46,8 +38,25 @@ const wallet = (state = ESTADO_INICIAL, action) => {
       ...state,
       expenses: action.despesasFiltradas,
       total: Number(Number(numSub <= 0 ? 0 : numSub).toFixed(2)),
+      buttonEdit: false,
     };
   }
+  case 'SAVE_DESPESAS': {
+    const total = state.total - (Number(action.A)) + Number(action.valorCam);
+    return {
+      ...state,
+      expenses: action.expenses,
+      total: total.toFixed(2) <= 0 ? 0 : total.toFixed(2),
+      buttonEdit: false,
+    };
+  }
+  case 'EDITAR_DESPESAS':
+    return {
+      ...state,
+      buttonEdit: true,
+      DespesaParaEditar: [...action.despesa],
+      IndexDaDespesa: [action.index, action.valorCambio],
+    };
   default:
     return state;
   }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { deletaDespesas } from '../redux/actions';
+import { deletaDespesas, editDespesas } from '../redux/actions';
 
 class Table extends Component {
   handleDelete = (id, valorDespesaAnterior, valorCambio) => {
@@ -10,6 +10,14 @@ class Table extends Component {
     const expensesFilter = expenses.filter((e) => e.id !== id);
     const valorConvertido = Number(valorDespesaAnterior) * Number(valorCambio);
     dispatch(deletaDespesas(expensesFilter, valorConvertido));
+  };
+
+  handleEdit = (id, index) => {
+    const { Wallet, dispatch } = this.props;
+    const { expenses } = Wallet;
+    const expensesFilterEdit = expenses.filter((e) => e.id === id);
+    const valor = expensesFilterEdit[0].exchangeRates[expensesFilterEdit[0].currency].ask;
+    dispatch(editDespesas(expensesFilterEdit, index, valor));
   };
 
   render() {
@@ -31,7 +39,7 @@ class Table extends Component {
           </tr>
         </thead>
         <tbody>
-          {expenses.map((e) => (
+          {expenses.map((e, index) => (
             <tr key={ e.id }>
               <td>{e.description}</td>
               <td>{e.tag}</td>
@@ -42,6 +50,16 @@ class Table extends Component {
               <td>{(e.exchangeRates[e.currency].ask * e.value).toFixed(2)}</td>
               <td>Real</td>
               <td>
+                <button
+                  type="button"
+                  data-testid="edit-btn"
+                  onClick={ () => this.handleEdit(
+                    e.id,
+                    index,
+                  ) }
+                >
+                  Editar despesa
+                </button>
                 <button
                   type="button"
                   data-testid="delete-btn"
