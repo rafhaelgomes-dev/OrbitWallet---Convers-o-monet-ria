@@ -46,7 +46,7 @@ const wallet = (state = ESTADO_INICIAL, action) => {
     return {
       ...state,
       expenses: action.expenses,
-      total: total.toFixed(2) <= 0 ? '0.00' : total.toFixed(2),
+      total: total.toFixed(2) < 1 ? '0.00' : total.toFixed(2),
       buttonEdit: false,
     };
   }
