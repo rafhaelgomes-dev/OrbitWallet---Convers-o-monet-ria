@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/OrbitWallet-Plataforma-Monetaria/static/css/main.5c82bb78.css",
+    "main.js": "/OrbitWallet-Plataforma-Monetaria/static/js/main.ed310ac3.js",
+    "static/media/img.png": "/OrbitWallet-Plataforma-Monetaria/static/media/img.f80a81b2254f09050f36.png",
+    "index.html": "/OrbitWallet-Plataforma-Monetaria/index.html",
+    "main.5c82bb78.css.map": "/OrbitWallet-Plataforma-Monetaria/static/css/main.5c82bb78.css.map",
+    "main.ed310ac3.js.map": "/OrbitWallet-Plataforma-Monetaria/static/js/main.ed310ac3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5c82bb78.css",
+    "static/js/main.ed310ac3.js"
+  ]
+}
