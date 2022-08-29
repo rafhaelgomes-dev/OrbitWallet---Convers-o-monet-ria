@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchAwesomeApi, saveEditDespesas } from '../redux/actions';
+import styles from './WalletFormEdit.module.css';
 
 class WalletFormEdit extends Component {
   constructor() {
@@ -72,11 +73,12 @@ class WalletFormEdit extends Component {
     const { currencies } = Wallet;
     const { Valor, Descrição, Moeda, Pagamento, Categoria } = this.state;
     return (
-      <div>
+      <div className={ styles.containerWalletForm }>
         <form>
           <label htmlFor="valor">
             Valor:
             <input
+              className={ styles.inputValor }
               type="text"
               value={ Valor }
               name="Valor"
@@ -87,6 +89,7 @@ class WalletFormEdit extends Component {
           <label htmlFor="descrição">
             Descrição:
             <input
+              className={ styles.inputDescrição }
               type="text"
               name="Descrição"
               value={ Descrição }
@@ -97,6 +100,7 @@ class WalletFormEdit extends Component {
           <label htmlFor="moeda">
             Moeda:
             <select
+              className={ styles.inputSelect1 }
               name="Moeda"
               data-testid="currency-input"
               value={ Moeda }
@@ -112,6 +116,7 @@ class WalletFormEdit extends Component {
           <label htmlFor="pagamento">
             Método de pagamento:
             <select
+              className={ styles.inputSelect1 }
               name="Pagamento"
               data-testid="method-input"
               value={ Pagamento }
@@ -125,6 +130,7 @@ class WalletFormEdit extends Component {
           <label htmlFor="tag">
             Categoria:
             <select
+              className={ styles.inputSelect1 }
               name="Categoria"
               data-testid="tag-input"
               value={ Categoria }
@@ -137,13 +143,16 @@ class WalletFormEdit extends Component {
               <option>Saúde</option>
             </select>
           </label>
-          <button
-            type="button"
-            onClick={ this.handleSaveInformation }
-          >
-            Editar despesa
+          <div>
+            <button
+              className={ styles.button }
+              type="button"
+              onClick={ this.handleSaveInformation }
+            >
+              Editar despesa
 
-          </button>
+            </button>
+          </div>
         </form>
       </div>
     );

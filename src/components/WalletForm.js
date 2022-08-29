@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchAwesomeApi, apiInformationAndCambio } from '../redux/actions';
+import styles from './WalletForm.module.css';
 
 class WalletForm extends Component {
   constructor() {
@@ -71,11 +72,12 @@ class WalletForm extends Component {
     const { currencies } = Wallet;
     const { Valor, Descrição, Moeda, Pagamento, Categoria } = this.state;
     return (
-      <div>
+      <div className={ styles.containerWalletForm }>
         <form>
           <label htmlFor="valor">
             Valor:
             <input
+              className={ styles.inputValor }
               type="text"
               value={ Valor }
               name="Valor"
@@ -86,6 +88,7 @@ class WalletForm extends Component {
           <label htmlFor="descrição">
             Descrição:
             <input
+              className={ styles.inputDescrição }
               type="text"
               name="Descrição"
               value={ Descrição }
@@ -96,6 +99,7 @@ class WalletForm extends Component {
           <label htmlFor="moeda">
             Moeda:
             <select
+              className={ styles.inputSelect1 }
               name="Moeda"
               data-testid="currency-input"
               value={ Moeda }
@@ -109,8 +113,9 @@ class WalletForm extends Component {
             </select>
           </label>
           <label htmlFor="pagamento">
-            Método de pagamento:
+            Pagamento:
             <select
+              className={ styles.inputSelect1 }
               name="Pagamento"
               data-testid="method-input"
               value={ Pagamento }
@@ -124,6 +129,7 @@ class WalletForm extends Component {
           <label htmlFor="tag">
             Categoria:
             <select
+              className={ styles.inputSelect1 }
               name="Categoria"
               data-testid="tag-input"
               value={ Categoria }
@@ -136,14 +142,17 @@ class WalletForm extends Component {
               <option>Saúde</option>
             </select>
           </label>
+        </form>
+        <div>
           <button
+            className={ styles.button }
             type="button"
             onClick={ this.handleSaveInformation }
           >
             Adicionar despesa
 
           </button>
-        </form>
+        </div>
       </div>
     );
   }

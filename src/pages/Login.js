@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import loginUserAction from '../redux/actions';
+import styles from './Login.module.css';
+import IMG from '../assets/img.png';
 
 class Login extends React.Component {
   constructor() {
@@ -59,33 +61,51 @@ class Login extends React.Component {
   render() {
     const { redirect, disabled, email } = this.state;
     return (
-      <section>
-        <h1>Login</h1>
-        <form>
-          <input
-            data-testid="email-input"
-            type="email"
-            name="email"
-            value={ email }
-            onChange={ (e) => this.handlePasswordaEmailValidation(e) }
-            required
-          />
-          <input
-            data-testid="password-input"
-            type="password"
-            name="password"
-            onChange={ (e) => this.handlePasswordaEmailValidation(e) }
-            required
-          />
-          <button
-            type="button"
-            disabled={ disabled }
-            onClick={ this.handleRedirect }
-          >
-            Entrar
+      <section className={ styles.login }>
+        <section className={ styles.containerPrincipal }>
+          <section className={ styles.containerForm }>
+            <form className={ styles.form }>
+              <p className={ styles.pBemVindo }>👋 Seja bem-vindo</p>
+              <h1>Você está na OrbitWallet</h1>
+              <p
+                className={ styles.pApresentação }
+              >
+                Somos uma super plataforma de conversão monetária
 
-          </button>
-        </form>
+              </p>
+              <p className={ styles.pEmail }>Email</p>
+              <input
+                data-testid="email-input"
+                type="email"
+                name="email"
+                placeholder="Digite seu E-mail"
+                value={ email }
+                onChange={ (e) => this.handlePasswordaEmailValidation(e) }
+                required
+              />
+              <p className={ styles.pSenha }>Senha</p>
+              <input
+                data-testid="password-input"
+                type="password"
+                name="password"
+                placeholder="Digite uma senha de no mínimo 6 caracteres"
+                onChange={ (e) => this.handlePasswordaEmailValidation(e) }
+                required
+              />
+              <button
+                type="button"
+                disabled={ disabled }
+                onClick={ this.handleRedirect }
+              >
+                Entrar
+
+              </button>
+            </form>
+          </section>
+          <section className={ styles.containerImagem }>
+            <img src={ IMG } alt="imagem" />
+          </section>
+        </section>
         {redirect ? <Redirect to="/carteira" /> : null}
       </section>
     );

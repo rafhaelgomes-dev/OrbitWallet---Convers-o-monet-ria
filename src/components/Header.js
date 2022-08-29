@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import styles from './Header.module.css';
 
 class Header extends Component {
   render() {
     const { Email, Wallet } = this.props;
     const { total } = Wallet;
     return (
-      <div>
+      <div className={ styles.containerHeader }>
         <p data-testid="email-field">{Email}</p>
-        <p data-testid="total-field">{total}</p>
-        <p data-testid="header-currency-field">BRL</p>
+        <section className={ styles.containerTotal }>
+          <p data-testid="total-field" className={ styles.pTotal }>{total}</p>
+          <p data-testid="header-currency-field">BRL</p>
+        </section>
       </div>
     );
   }

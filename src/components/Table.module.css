@@ -1,0 +1,15 @@
+.divTable {
+  max-width: 1000px;
+  overflow: scroll;
+  margin: auto;
+}
+
+.Table {
+  background-color: white;
+  width: 100%;
+  margin: auto;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}

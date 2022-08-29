@@ -1,0 +1,18 @@
+.containerWallet {
+  background-color: #CDCDCD;
+  height: 100vh;
+}
+
+.cabeçalho {
+  background-color: #181542;
+  color: white;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cabeçalho p {
+  margin-top: 10px;
+}

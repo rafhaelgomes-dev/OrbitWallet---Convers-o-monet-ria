@@ -1,0 +1,21 @@
+.containerHeader {
+  background-color: white;
+  display: flex;
+  max-width: 600px;
+  margin: auto;
+  border-radius: 8px;
+  padding: 20px;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: -20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.containerTotal {
+  display: flex;
+}
+
+.pTotal {
+  margin-right: 5px;
+}

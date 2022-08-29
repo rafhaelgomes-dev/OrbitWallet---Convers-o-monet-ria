@@ -1,0 +1,68 @@
+.containerWalletForm {
+  background-color: white;
+  max-width: 1000px;
+  display: flex;
+  margin: auto;
+  border-radius: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.containerWalletForm form {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.containerWalletForm form div {
+  width: 100%;
+  text-align: center;
+}
+
+.containerWalletForm form label {
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+.inputValor {
+  height: 30px;
+  border: none;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.inputDescrição {
+  height: 30px;
+  border: none;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.inputSelect1 {
+  height: 30px;
+  border: none;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.button {
+  width: 200px;
+  height: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: rgba(22, 32, 114, 1);
+  color: white;
+  border-radius: 5px;
+  border: none;
+  margin-top: 20px;
+  transition: 300ms;
+}
+
+.button:hover {
+  background-color: rgb(0, 96, 26);
+  transition: 300ms;
+}
