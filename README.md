@@ -1,6 +1,6 @@
 # Projeto OrbitWallet
 
-Aplicação que permite computar os gastos em diferentes moedas escolhidas pelo usuário e exibe um total convertido para BRL, permitindo também deletar e editar as despesas sendo póssivel mudar a moeda quantas vezes for necessário que o calculo se atualiza com o novo valor da cotação!!
+Aplicação que permite computar os gastos em diferentes moedas escolhidas pelo usuário e exibe um total convertido para BRL, permitindo também deletar e editar as despesas sendo póssivel mudar a moeda quantas vezes for necessário que o calculo se atualiza com o novo valor da cotação!
 
 Sistema Perfeito para brasileiros que curtem viajar para o exterior.
 
