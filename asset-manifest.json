@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/OrbitWallet-Plataforma-Monetaria/static/css/main.b5dcb98d.css",
-    "main.js": "/OrbitWallet-Plataforma-Monetaria/static/js/main.5aa3b7e0.js",
+    "main.css": "/OrbitWallet-Plataforma-Monetaria/static/css/main.e92ea9db.css",
+    "main.js": "/OrbitWallet-Plataforma-Monetaria/static/js/main.03ff810f.js",
     "static/media/img.png": "/OrbitWallet-Plataforma-Monetaria/static/media/img.f80a81b2254f09050f36.png",
     "index.html": "/OrbitWallet-Plataforma-Monetaria/index.html",
-    "main.b5dcb98d.css.map": "/OrbitWallet-Plataforma-Monetaria/static/css/main.b5dcb98d.css.map",
-    "main.5aa3b7e0.js.map": "/OrbitWallet-Plataforma-Monetaria/static/js/main.5aa3b7e0.js.map"
+    "main.e92ea9db.css.map": "/OrbitWallet-Plataforma-Monetaria/static/css/main.e92ea9db.css.map",
+    "main.03ff810f.js.map": "/OrbitWallet-Plataforma-Monetaria/static/js/main.03ff810f.js.map"
   },
   "entrypoints": [
-    "static/css/main.b5dcb98d.css",
-    "static/js/main.5aa3b7e0.js"
+    "static/css/main.e92ea9db.css",
+    "static/js/main.03ff810f.js"
   ]
 }
