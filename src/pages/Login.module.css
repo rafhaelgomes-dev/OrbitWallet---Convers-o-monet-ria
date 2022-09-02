@@ -53,6 +53,7 @@
 }
 
 .form button {
+  cursor: pointer;
   width: 80px;
   height: 30px;
   background: rgba(22, 32, 114, 1);
@@ -94,4 +95,8 @@
 .pSenha {
   margin-top: 20px;
   margin-bottom: 10px;
+}
+
+.pError {
+  margin-top: 20px;
 }

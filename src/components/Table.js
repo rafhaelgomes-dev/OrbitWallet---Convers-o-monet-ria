@@ -54,7 +54,7 @@ class Table extends Component {
                 <td>
                   <button
                     type="button"
-                    data-testid="edit-btn"
+                    className={ styles.EditBtn }
                     onClick={ () => this.handleEdit(
                       e.id,
                       index,
@@ -64,7 +64,7 @@ class Table extends Component {
                   </button>
                   <button
                     type="button"
-                    data-testid="delete-btn"
+                    className={ styles.DeleteBtn }
                     onClick={ () => this.handleDelete(
                       e.id,
                       e.value,

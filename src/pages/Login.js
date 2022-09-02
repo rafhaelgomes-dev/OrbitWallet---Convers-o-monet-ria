@@ -15,12 +15,19 @@ class Login extends React.Component {
       disabled: true,
       redirect: false,
       email: '',
+      error: undefined,
     };
   }
 
   handleRedirect = () => {
     const { dispatch } = this.props;
-    const { email } = this.state;
+    const { email, disabled } = this.state;
+    if (disabled === true) {
+      this.setState({
+        error: 'E-mail ou senha inválidos',
+      });
+      return;
+    }
     dispatch(loginUserAction(email));
     this.setState({
       redirect: true,
@@ -59,7 +66,7 @@ class Login extends React.Component {
   };
 
   render() {
-    const { redirect, disabled, email } = this.state;
+    const { redirect, email, error } = this.state;
     return (
       <section className={ styles.login }>
         <section className={ styles.containerPrincipal }>
@@ -92,9 +99,9 @@ class Login extends React.Component {
                 onChange={ (e) => this.handlePasswordaEmailValidation(e) }
                 required
               />
+              {error !== undefined && <p className={ styles.pError }>{error}</p>}
               <button
                 type="button"
-                disabled={ disabled }
                 onClick={ this.handleRedirect }
               >
                 Entrar
