@@ -61,6 +61,7 @@
   border-radius: 5px;
   border: none;
   margin-top: 20px;
+  margin-bottom: 20px;
   transition: 400ms;
 }
 
@@ -99,4 +100,13 @@
 
 .pError {
   margin-top: 20px;
+}
+
+@media screen and (max-width: 500px) {
+  .containerImagem {
+    display: none;
+  }
+  .containerForm {
+    width: 100%;
+  }
 }
