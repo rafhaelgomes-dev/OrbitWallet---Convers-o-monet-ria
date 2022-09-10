@@ -14,11 +14,9 @@ class Wallet extends React.Component {
     return (
       <div className={ styles.containerWallet }>
         <div className={ styles.cabeçalho }>
-          <h1>OrbitWallet</h1>
-          <p>Plataforma de conversão monetária</p>
+          <Header />
+          {buttonEdit === true ? <WalletFormEdit /> : <WalletForm />}
         </div>
-        <Header />
-        {buttonEdit === true ? <WalletFormEdit /> : <WalletForm />}
         <Table />
       </div>
     );

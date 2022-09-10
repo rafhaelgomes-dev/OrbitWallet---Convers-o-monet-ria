@@ -30,6 +30,7 @@
   border: 1px solid black;
   border-radius: 5px;
   padding: 5px;
+  color: #003BE5;
 }
 
 .inputDescrição {
@@ -38,6 +39,7 @@
   border: 1px solid black;
   border-radius: 5px;
   padding: 5px;
+  color: #003BE5;
 }
 
 .inputSelect1 {
@@ -46,6 +48,7 @@
   border: 1px solid black;
   border-radius: 5px;
   padding: 5px;
+  color: #003BE5;
 }
 
 .button {
@@ -54,7 +57,7 @@
   height: 30px;
   margin-top: 10px;
   margin-bottom: 10px;
-  background: rgba(22, 32, 114, 1);
+  background: #2FC18C;
   color: white;
   border-radius: 5px;
   border: none;
@@ -63,6 +66,6 @@
 }
 
 .button:hover {
-  background-color: rgb(0, 96, 26);
+  background-color: rgb(18, 141, 51);
   transition: 300ms;
 }

@@ -1,16 +1,22 @@
 .containerWallet {
-  background-color: #CDCDCD;
+  background-color: #2FC18C;
+  background-image: url('../assets/foto-fundo.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   height: 100vh;
 }
 
 .cabeçalho {
-  background-color: #181542;
-  color: white;
-  height: 150px;
+  margin: auto;
+  background-color: white;
+  color: #003BE5;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  border-radius: 0px 0px 8px 8px;
+  padding: 10px;
 }
 
 .cabeçalho p {

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './Header.module.css';
+import Logo from '../assets/logo.svg';
+import Moedas from '../assets/Moedas.svg';
 
 class Header extends Component {
   render() {
@@ -9,11 +11,13 @@ class Header extends Component {
     const { total } = Wallet;
     return (
       <div className={ styles.containerHeader }>
-        <p data-testid="email-field">{`E-mail: ${Email}`}</p>
+        <img src={ Logo } alt="logo" />
         <section className={ styles.containerTotal }>
-          <p className={ styles.pTotal }>{`Total: R$${total}`}</p>
+          <img src={ Moedas } alt="logo moeda" />
+          <p className={ styles.pTotal }>{`Total de despesas: ${total}`}</p>
           <p data-testid="header-currency-field">BRL</p>
         </section>
+        <p data-testid="email-field">{`${Email}`}</p>
       </div>
     );
   }
