@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './Header.module.css';
 import Logo from '../assets/logo.svg';
 import Moedas from '../assets/Moedas.svg';
+import IconEmail from '../assets/iconEmail.svg';
 
 class Header extends Component {
   render() {
@@ -11,13 +12,19 @@ class Header extends Component {
     const { total } = Wallet;
     return (
       <div className={ styles.containerHeader }>
-        <img src={ Logo } alt="logo" />
+        <div className={ styles.logoContainer }>
+          <img src={ Logo } alt="logo" />
+          <p>Orbit Wallet</p>
+        </div>
         <section className={ styles.containerTotal }>
           <img src={ Moedas } alt="logo moeda" />
           <p className={ styles.pTotal }>{`Total de despesas: ${total}`}</p>
           <p data-testid="header-currency-field">BRL</p>
         </section>
-        <p data-testid="email-field">{`${Email}`}</p>
+        <section className={ styles.logoContainerEmail }>
+          <img src={ IconEmail } alt="logo" />
+          <p>{`${Email}`}</p>
+        </section>
       </div>
     );
   }

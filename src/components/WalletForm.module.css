@@ -5,6 +5,7 @@
   border-radius: 8px;
   justify-content: center;
   flex-wrap: wrap;
+  background-color: #E1E5EB;
 }
 
 .containerWalletForm form {
