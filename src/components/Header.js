@@ -22,8 +22,8 @@ class Header extends Component {
           <p data-testid="header-currency-field">BRL</p>
         </section>
         <section className={ styles.logoContainerEmail }>
-          <img src={ IconEmail } alt="logo" />
-          <p>{`${Email}`}</p>
+          <img src={ IconEmail } alt="logo Email" />
+          <span>{`${Email}`}</span>
         </section>
       </div>
     );

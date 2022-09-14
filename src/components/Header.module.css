@@ -27,13 +27,11 @@
 
 .logoContainerEmail {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
-.logoContainerEmail p {
-  margin: 0;
-  padding: 0;
+.logoContainerEmail span {
   margin-left: 10px;
   color: #2FC18C;
 }
