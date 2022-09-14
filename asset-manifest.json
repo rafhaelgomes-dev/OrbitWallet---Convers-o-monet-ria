@@ -1,17 +1,18 @@
 {
   "files": {
-    "main.css": "/OrbitWallet-Plataforma-Monetaria/static/css/main.8f28ad75.css",
-    "main.js": "/OrbitWallet-Plataforma-Monetaria/static/js/main.f8eef9d0.js",
+    "main.css": "/OrbitWallet-Plataforma-Monetaria/static/css/main.d10a7176.css",
+    "main.js": "/OrbitWallet-Plataforma-Monetaria/static/js/main.813d0250.js",
     "static/media/foto-fundo.svg": "/OrbitWallet-Plataforma-Monetaria/static/media/foto-fundo.ca46c4e6c2112da19546.svg",
     "static/media/img.png": "/OrbitWallet-Plataforma-Monetaria/static/media/img.f80a81b2254f09050f36.png",
     "static/media/logo.svg": "/OrbitWallet-Plataforma-Monetaria/static/media/logo.518798c013825fef385383496d921025.svg",
     "static/media/Moedas.svg": "/OrbitWallet-Plataforma-Monetaria/static/media/Moedas.623fb78dbc7a77c798c9dc137d26cd5d.svg",
+    "static/media/iconEmail.svg": "/OrbitWallet-Plataforma-Monetaria/static/media/iconEmail.bb28b6ee5ed63b019518c906ff503058.svg",
     "index.html": "/OrbitWallet-Plataforma-Monetaria/index.html",
-    "main.8f28ad75.css.map": "/OrbitWallet-Plataforma-Monetaria/static/css/main.8f28ad75.css.map",
-    "main.f8eef9d0.js.map": "/OrbitWallet-Plataforma-Monetaria/static/js/main.f8eef9d0.js.map"
+    "main.d10a7176.css.map": "/OrbitWallet-Plataforma-Monetaria/static/css/main.d10a7176.css.map",
+    "main.813d0250.js.map": "/OrbitWallet-Plataforma-Monetaria/static/js/main.813d0250.js.map"
   },
   "entrypoints": [
-    "static/css/main.8f28ad75.css",
-    "static/js/main.f8eef9d0.js"
+    "static/css/main.d10a7176.css",
+    "static/js/main.813d0250.js"
   ]
 }
